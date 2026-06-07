@@ -22,7 +22,6 @@ function DisplayCard({
   title = "Featured",
   description = "Discover amazing content",
   date = "Just now",
-  iconClassName = "text-emerald-400",
   titleClassName = "text-emerald-400",
   onClick,
   layoutId,
