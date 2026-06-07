@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --color-syndicate-bg: #050505;
+  --color-syndicate-surface: rgba(255, 255, 255, 0.03);
+  --color-syndicate-surface-hover: rgba(255, 255, 255, 0.06);
+  --color-syndicate-border: rgba(255, 255, 255, 0.08);
+  --color-syndicate-border-hover: rgba(255, 255, 255, 0.2);
+  --color-syndicate-accent-emerald: #10B981;
+  --color-syndicate-accent-navy: #1D4ED8;
+  --color-syndicate-text-primary: #FFFFFF;
+  --color-syndicate-text-secondary: #A1A1AA;
+  
+  --font-sans: 'Inter', 'Space Grotesk', system-ui, sans-serif;
+  
+  --animate-pulse-slow: pulse-slow 15s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-gradient: gradient 4s linear infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.02);
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-syndicate-bg text-syndicate-text-primary font-sans antialiased relative min-h-screen overflow-x-hidden m-0 p-0;
+  }
+  
+  /* Subtle Noise Overlay for premium texture */
+  body::before {
+    content: "";
+    @apply fixed inset-0 pointer-events-none opacity-[0.03] z-[9999] mix-blend-overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Base custom utility classes */
+@layer utilities {
+  .glass-card {
+    @apply bg-syndicate-surface backdrop-blur-xl border border-syndicate-border rounded-2xl transition-all duration-300;
+  }
+  
+  .glass-card:hover {
+    @apply bg-syndicate-surface-hover border-syndicate-border-hover shadow-[0_8px_30px_rgb(0,0,0,0.12)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-neutral-400;
+  }
+}
