@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { 
-  ArrowUpRight, ChevronDown, Sparkles, Video, MessageSquare, Briefcase, 
-  Camera, Flame, CheckCircle, Network, Code, RefreshCw, Zap, Cpu
+  ArrowUpRight, ChevronDown, Sparkles, Network, Zap, Cpu
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { GlassCard } from '../components/ui/GlassCard';

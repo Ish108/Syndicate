@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Settings, History, PlusCircle, LayoutTemplate, 
-  UploadCloud, Wand2, Copy, RefreshCw, Edit3, CheckCircle2, ChevronRight
+  UploadCloud, Wand2, Copy, RefreshCw, Edit3, CheckCircle2, Sparkles
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { GlassCard } from '../components/ui/GlassCard';
 import { Tabs } from '../components/ui/Tabs';
 
-type OutputPlatform = 'youtube' | 'shorts' | 'ig' | 'x' | 'linkedin';
 
 export const Dashboard: React.FC = () => {
   const [isGenerating, setIsGenerating] = useState(false);
